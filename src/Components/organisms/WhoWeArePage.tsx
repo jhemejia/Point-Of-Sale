@@ -2,7 +2,7 @@ import InfoPageTemplate from "../molecules/InfoPageTemplate"
 
 const WhoWeArePage = () => {
   return (
-    <div className="flex flex-col items-center justify-center max-w-full h-full">
+    <div className="flex flex-col justify-center max-w-full h-full">
         <InfoPageTemplate title="Who We Are" subtitle="Welcome to Our Company! We are a leading retailer of various products, offering high-quality items to our valued customers.">
       
           <section className="py-6 mx-6 ">
@@ -14,7 +14,7 @@ const WhoWeArePage = () => {
             </div>
           </section>
           
-          <section className="py-1 bg-white mx-6">
+          <section className="py-1 mx-6">
             <div className="container mx-auto px-4">
               <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
               <p className="text-grey-700">At Our Retail Company, our mission is to provide customers with a seamless shopping experience by offering a wide selection of high-quality products at competitive prices. We aim to become your go-to destination for all your shopping needs.</p>

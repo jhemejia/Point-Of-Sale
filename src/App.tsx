@@ -1,10 +1,10 @@
 import './App.css'
-import Dashboard from './Components/pages/Dashboard'
+import LayoutTemplate from './Components/organisms/Drawer'
 
 function App() {
   return (
-    <div className='flex items-center justify-center h-screen w-screen'>
-      <Dashboard />
+    <div className='container min-w-full'>
+      <LayoutTemplate />
     </div>
   )
 }

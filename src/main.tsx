@@ -12,6 +12,7 @@ import Login from './Components/pages/Login.tsx';
 import Signup from './Components/pages/Signup.tsx';
 import WhoWeArePage from './Components/organisms/WhoWeArePage.tsx';
 import OurPhilosophyPage from './Components/organisms/OurPhilosophyPage.tsx';
+import ProfilePage from './Components/pages/ProfilePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -30,13 +31,13 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/dashboard",
+    path: "/main",
     element: <App />,
     children:[
       {
-        path: "/dashboard/home",
-        element: <div className='h-full'>HOME</div> ,
-      }
+        path: "profile",
+        element: <ProfilePage /> ,
+      },
     ]
   },
   {
