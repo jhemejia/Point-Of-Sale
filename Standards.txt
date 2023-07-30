@@ -1,0 +1,7 @@
+Components and Classes (Services)...............PascalCase
+Variables and functions.........................camelCase
+API Service class non-endpoint functions........_prefixed
+CSS classes.....................................skewer-case
+Routes..........................................snake_case
+Route names.....................................dot.notation
+Enum names......................................SCREAMING_SNAKE_CASE
