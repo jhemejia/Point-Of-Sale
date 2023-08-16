@@ -13,6 +13,7 @@ import Signup from './Components/pages/Signup.tsx';
 import WhoWeArePage from './Components/organisms/WhoWeArePage.tsx';
 import OurPhilosophyPage from './Components/organisms/OurPhilosophyPage.tsx';
 import ProfilePage from './Components/pages/ProfilePage.tsx';
+import Store from './Components/pages/Store.tsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <ProfilePage /> ,
+      },
+      {
+        path: "store",
+        element: <Store /> ,
       },
     ]
   },

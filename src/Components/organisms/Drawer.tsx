@@ -17,14 +17,14 @@ const Dashboard = () => {
   return (
     <div className="container min-h-screen min-w-full max-h-screen bg-light-gray text-gray-700" >
         {/* <!-- page -->  */}        
-        <main className="h-full bg-light-gray text-gray-700 relative" >
+        <main className="flex flex-col h-full bg-light-gray text-gray-700 relative" >
             {/* <!-- header page --> */}
             <div className='flex max-w-full h-14'>
             <Header aSideOpen={aSideOpen} profileDiv={profileDiv} profileImageUrl={profileImageUrl} setASideOpen={setASideOpen} setProfileDiv={setProfileDiv} />
             </div>
-            <div className="flex max-h-full">
+            <div className="flex h-full">
                 {/* <!-- aside --> */}
-                <aside className={["flex w-72 h-full flex-col space-y-2 border-r-2 border-grey-100 bg-white p-2 h-full ",!aSideOpen?"hidden":""].join("")}
+                <aside className={[" w-72 h-full space-y-2 border-r-2 border-grey-100 bg-white p-2 ",!aSideOpen?"hidden":""].join("")}
                     >
                     <Link to='' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-grey-100 ">
                         <span className="text-2xl"><i className="bx bx-home"></i></span>
@@ -36,7 +36,7 @@ const Dashboard = () => {
                         <span>Cart</span>
                     </Link>
 
-                    <Link to='' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-grey-100 ">
+                    <Link to='store' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-grey-100 ">
                         <span className="text-2xl"><i className="bx bx-shopping-bag"></i></span>
                         <span>Store</span>
                     </Link>
@@ -50,6 +50,7 @@ const Dashboard = () => {
                         <span className="text-2xl"><i className="bx bx-user"></i></span>
                         <span>Profile</span>
                     </Link>
+                    <div className="mt-auto place-self-end h-auto"></div>
                 </aside>
 
                 {/* <!-- main content page --> */}
