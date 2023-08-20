@@ -68,20 +68,20 @@ const ContactForm = () => {
     }
 
   return (
-    <div className="bg-white dark:bg-grey-900 mx-6">
+    <div className="bg-white dark:bg-gray-900 mx-6">
       {/* Contact Form component */} 
     {/* Web3Forms Popup Widget Starts here */} 
         <div  id="web3forms__widget" ref={widgetRef}> 
             <div
                 id="w3f__widget--content"
-                className={["fixed flex flex-col z-50 bottom-[100px] top-0 right-0 h-auto left-0 sm:top-auto sm:right-5 sm:left-auto h-[calc(90%-75px)] w-full sm:w-[350px] overflow-auto  border border-grey-300 bg-white shadow-2xl rounded-md ",open?"":"hidden"].join(" ")}
+                className={["fixed flex flex-col z-50 bottom-[100px] top-0 right-0 h-auto left-0 sm:top-auto sm:right-5 sm:left-auto h-[calc(90%-75px)] w-full sm:w-[350px] overflow-auto  border border-gray-300 bg-white shadow-2xl rounded-md ",open?"":"hidden"].join(" ")}
                 
             >
-                <div className="flex p-2 flex-col justify-center items-center h-32 bg-indigo-600">
+                <div className="flex p-2 flex-col justify-center items-center py-4 bg-indigo-600">
                     <h3 className="text-lg text-white">How can I help?</h3>
                     <p className="text-white opacity-50">I usually respond in a few hours</p>
                 </div>
-                <div className="bg-grey-50 flex-grow py-3 px-5"> 
+                <div className="bg-gray-50 flex-grow py-3 px-5"> 
                     <form
                     onSubmit={handleFormSubmit}
                     action="none"
@@ -92,46 +92,36 @@ const ContactForm = () => {
                             name="subject"
                             value="New Submission from Web3Forms"
                         />       
-                        <div className="mb-4">
-                            <label
-                                htmlFor="name"
-                                className="block mb-2 text-sm text-grey-600 dark:text-grey-400"
-                                >Full Name</label>
+                        <div className="my-4">
+                            <label htmlFor="name" className="hidden">Number</label>
                             <input
                                 type="text"
                                 name="name"
                                 id="full_name"
-                                placeholder="John Doe"
+                                placeholder="Full Name"
                                 required
                                 value={formValues.name}
                                 onChange={handleInputChange}
-                                className="w-full px-3 py-2 bg-white placeholder-grey-300 border border-grey-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                className="w-full px-3 py-2 text-gray-800 font-semibold border-gray-400 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
                             />
                         </div>
                         
                         <div className="mb-4">
-                            <label
-                                htmlFor="email"
-                                className="block mb-2 text-sm text-grey-600 dark:text-grey-400"
-                                >Email Address</label>
+                            <label htmlFor="email" className="hidden">Number</label>
                             <input
                                 type="email"
                                 name="email"
                                 id="email"
-                                placeholder="you@company.com"
+                                placeholder="Email"
                                 value={formValues.email}
                                 onChange={handleInputChange}
                                 required
-                                className="w-full px-3 py-2 bg-white placeholder-grey-300 border border-grey-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                                className="w-full px-3 py-2 text-gray-800 font-semibold border-gray-400 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
                             />
                         </div>
                     
                         <div className="mb-4">
-                            <label
-                            htmlFor="message"
-                            className="block mb-2 text-sm text-grey-600 dark:text-grey-400"
-                            >Your Message</label>
-
+                            <label htmlFor="message" className="hidden">Number</label>
                             <textarea
                             rows={3}
                             name="message"
@@ -139,7 +129,7 @@ const ContactForm = () => {
                             placeholder="Your Message"
                             value={formValues.message}
                             onChange={handleInputChange}
-                            className="w-full h-20 px-3 py-2 bg-white placeholder-grey-300 border border-grey-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                            className="w-full h-20 px-3 py-2 bg-white placeholder-gray-400 font-bold border border-gray-400 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300"
                             required
                             ></textarea>
                         </div>
@@ -151,8 +141,8 @@ const ContactForm = () => {
                             Send Message
                             </button>
                         </div>
-                        <p className="text-xs text-center text-grey-400" id="result">
-                            <span>Powered by <Link to="https://Web3Forms.com" className="text-grey-600" target="_blank" rel="noopener noreferrer">Web3Forms</Link></span>
+                        <p className="text-xs text-center text-gray-400" id="result">
+                            <span>Powered by <Link to="https://Web3Forms.com" className="text-gray-600" target="_blank" rel="noopener noreferrer">Web3Forms</Link></span>
                         </p>
                     </form>
                 </div>

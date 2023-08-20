@@ -9,6 +9,7 @@ export default {
       xl: '1440px',
     },
     colors: {
+      'transparent':'#00000000',
       blue: {
         DEFAULT: '#2196f3',
         50: '#e3f2fd',
@@ -29,6 +30,7 @@ export default {
       'purple': '#7e5bef',
       'pink': '#ff49db',
       'orange': '#ff7849',
+      'weird':'#172033',
         green: {
           DEFAULT: '#4caf50',
           50: '#e8f5e9',
@@ -68,7 +70,7 @@ export default {
         '400-accent': '#1de9b6',
         '700-accent': '#00bfa5',
       },
-      grey: {
+      gray: {
         DEFAULT: '#9e9e9e',
         50: '#fafafa',
         100: '#f5f5f5',
@@ -98,6 +100,7 @@ export default {
         '400-accent': '#3d5afe',
         '700-accent': '#304ffe',
       },
+      'black': '#000000'
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],

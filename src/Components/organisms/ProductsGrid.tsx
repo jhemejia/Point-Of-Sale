@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../molecules/ProductCard';
-import axios from 'axios';
 import { Item } from '../../Types/StoreTypes';
+import { useAppDispatch, useAppSelector } from '../../store';
+import { loadProducts, selectProducts } from '../../Reducers/productsSlice';
 
 
 const ProductsGrid = () => {
@@ -18,15 +19,15 @@ const ProductsGrid = () => {
     "Underwear"
   ];
   
+  const dispatch = useAppDispatch()
+  const products = useAppSelector(selectProducts)
   const [ items, setItems ] = useState<Item[]>([])
   const [ sort, setSort ] = useState('recommended')
   // get products on load.
   useEffect(()=>{
-      axios.get('https://api.escuelajs.co/api/v1/products')
-    .then((res)=>{  
-        setItems(res.data)
-    })
-    .catch(error=>console.log("Axios Error:", error))
+    dispatch(loadProducts())
+    // console.log(products)
+    setItems(products)
   },[])
 
   return (

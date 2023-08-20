@@ -24,29 +24,29 @@ const Dashboard = () => {
             </div>
             <div className="flex h-full">
                 {/* <!-- aside --> */}
-                <aside className={[" w-72 h-full space-y-2 border-r-2 border-grey-100 bg-white p-2 ",!aSideOpen?"hidden":""].join("")}
+                <aside className={[" w-72 h-full space-y-2 border-r-2 border-gray-100 bg-white p-2 ",!aSideOpen?"hidden":""].join("")}
                     >
-                    <Link to='' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-grey-100 ">
+                    <Link to='' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 ">
                         <span className="text-2xl"><i className="bx bx-home"></i></span>
                         <span>Dashboard</span>
                     </Link>
 
-                    <Link to='' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-grey-100 ">
+                    <Link to='' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 ">
                         <span className="text-2xl"><i className="bx bx-cart"></i></span>
                         <span>Cart</span>
                     </Link>
 
-                    <Link to='store' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-grey-100 ">
+                    <Link to='store' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 ">
                         <span className="text-2xl"><i className="bx bx-shopping-bag"></i></span>
                         <span>Store</span>
                     </Link>
 
-                    <Link to='' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-grey-100 ">
+                    <Link to='' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 ">
                         <span className="text-2xl"><i className="bx bx-heart"></i></span>
                         <span>Personel</span>
                     </Link>
 
-                    <Link to="profile" className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-grey-100 ">
+                    <Link to="profile" className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 ">
                         <span className="text-2xl"><i className="bx bx-user"></i></span>
                         <span>Profile</span>
                     </Link>

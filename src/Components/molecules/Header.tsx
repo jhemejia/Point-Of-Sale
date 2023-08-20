@@ -21,7 +21,7 @@ const Header = (props:HeaderProps) => {
 
   return (
     <>
-    <header className="flex w-full items-center justify-between border-b-2 border-grey-100 bg-white p-2">
+    <header className="flex w-full items-center justify-between border-b-2 border-gray-100 bg-white p-2">
               {/*   <!-- logo --> */}
                 <div className="flex items-center space-x-2 pl-2">
                     <button type="button" className="text-3xl" onClick={()=>{props.setASideOpen(!props.aSideOpen)}}><Icon path={mdiMenu} size={1} /></button>
@@ -40,7 +40,7 @@ const Header = (props:HeaderProps) => {
                     </button>
 
                    {/*  <!-- dropdown profile --> */}
-                    <div className={["absolute right-2 mt-64 w-48 divide-y divide-grey-100 rounded-md border border-gray bg-white shadow-md",props.profileDiv?"":" hidden"].join("")}
+                    <div className={["absolute right-2 mt-64 w-48 divide-y divide-gray-100 rounded-md border border-gray bg-white shadow-md",props.profileDiv?"":" hidden"].join("")}
                         >
                         <div className="flex items-center space-x-2 p-2">
                             <img src={props.profileImageUrl} alt="profile-img" className="h-9 w-9 rounded-full" />
