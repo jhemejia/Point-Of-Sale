@@ -25,7 +25,7 @@ const Header = (props:HeaderProps) => {
               {/*   <!-- logo --> */}
                 <div className="flex items-center space-x-2 pl-2">
                     <button type="button" className="text-3xl" onClick={()=>{props.setASideOpen(!props.aSideOpen)}}><Icon path={mdiMenu} size={1} /></button>
-                    <div className='w-20'><img src={logo} className='w-20 h-10' alt="" /></div>
+                    <Link to='/' className='w-20'><img src={logo} className='w-20 h-10' alt="" /></Link>
                 </div>
                 {/* <!-- button profile --> */}
                 <div className='flex items-center space-x-4'>

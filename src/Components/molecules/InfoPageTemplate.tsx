@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const InfoPageTemplate = (props:any) => {
   return (
     <div className="flex flex-col relative w-full h-full">
@@ -10,6 +12,11 @@ const InfoPageTemplate = (props:any) => {
         </div>
         <div className="mb-4 md:mb-2 w-full relative">
             { props.children }
+        </div>
+        <div className="my-4 md:mb-2 w-full text-center">
+          <Link to="/my-work" className="inline-flex items-center w-50 justify-center px-5 py-3 text-base font-medium text-center hover:text-gray-900 border text-gray-800 border-gray-300 rounded-lg hover:bg-gray-200 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800 hover:animate-pulse">
+            See My Work
+          </Link> 
         </div>
     </div>
   )

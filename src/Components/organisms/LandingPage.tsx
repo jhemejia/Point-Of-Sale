@@ -11,7 +11,7 @@ const LandingPage = () => {
         {/* Main CTA */}
         <section className="bg-white dark:bg-gray-900 w-full mx-auto">
           <div className="grid w-full px-6 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-              <div className="w-full flex flex-col items-center place-self-center lg:col-span-7 pb-6 ">
+              <div className="w-full flex flex-col items-center place-self-center lg:col-span-7 pb-6 pl-4">
                   <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white text-center text-gray-800">Bridging Imagination and Functionality through Code</h1>
                   <p className="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Welcome to my portfolio showcasing a fusion of innovation and functionality. As a dedicated developer, I specialize in transforming ideas into seamless, interactive digital experiences. Explore my projects that reflect a passion for clean code and user-centric design.</p>
       
@@ -21,7 +21,7 @@ const LandingPage = () => {
               </div>
               <div className=" lg:mt-0 lg:col-span-5 flex rounded-lg  justify-center items-center">
                 <div className='flex w-2/3'>
-                  <img src="/fotor-ai.jpg" alt="mockup" className="rounded-lg" />
+                  <img src="/fotor-ai.jpg" alt="mockup" className="rounded-lg " />
                 </div>
               </div>                
           </div>
@@ -52,7 +52,7 @@ const LandingPage = () => {
           </p>
         </div>
         <section className="flex flex-row  w-full px-6 py-3 mx-auto lg:gap-8 xl:gap-0 lg:py-16 fex-wrap  text-gray-800">
-            <div className="mx-auto w-full flex flex-col items-center justify-start pb-6 w-1/3">
+            <div className="mx-auto flex flex-col items-center justify-start pb-6 w-1/3">
                 <h3 className="font-bold text-2xl">Table of Content</h3>
                 <div className='flex flex-col mt-5'>
                   {faqLandingPage.map((category:any, index)=>{
@@ -68,7 +68,7 @@ const LandingPage = () => {
                   })}
                 </div>
             </div>
-            <div className="mx-auto  flex flex-col flex-fill w-full mt-14 pb-6 w-2/3">
+            <div className="mx-auto  flex flex-col flex-fill mt-14 pb-6 w-2/3">
                 {faqCategory.questions.map((question:any, index)=>{
                   return (
                     <div className='flex mb-3 flex-col justify-start items-start ' key={index}>

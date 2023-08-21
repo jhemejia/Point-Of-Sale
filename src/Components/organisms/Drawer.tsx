@@ -54,7 +54,9 @@ const Dashboard = () => {
                 </aside>
 
                 {/* <!-- main content page --> */}
-                <div className="flex items-center max-w-full h-full "><Outlet/></div>
+                <div className="flex flex-col items-center max-w-full h-full ">
+                    <Outlet/>
+                </div>
             </div>
         </main>  
     </div>

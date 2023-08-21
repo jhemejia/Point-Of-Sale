@@ -15,7 +15,8 @@ const home = () => {
             </Link>
             <nav className="flex-nowrap items-center justify-center pl-6 ml-6 text-base border-l hidden sm:flex border-gray md:mr-auto ">
                 <Link to="/" className="mr-5 font-medium hover:text-gray-900">Home</Link>
-                <Link to="/about" className="mr-5 font-medium hover:text-gray-900">About</Link>
+                <Link to="/my-work" className="mr-5 font-medium hover:text-gray-900">My Work</Link>
+                <Link to="/about" className="mr-5 font-medium hover:text-gray-900">About Me</Link>
                 <Link to="/contact" className="font-medium hover:text-gray-900">Contact</Link>
             </nav>
             <div className="flex flex-nowrap items-center h-full justify-end mx-2">

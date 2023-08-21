@@ -3,28 +3,28 @@ import InfoPageTemplate from "../molecules/InfoPageTemplate"
 const OurPhilosophyPage = () => {
   return (
     <div className="flex flex-col justify-center max-w-full h-full">
-        <InfoPageTemplate title="Our Philosophy" subtitle="">
+        <InfoPageTemplate title="My Philosophy" subtitle="">
           <section className="pt-6 pb-1 mx-6 ">
             <div className="container mx-auto px-4">
-              <p className="text-gray-700">At Your Retail Company, we are committed to providing the best products and services to our valued customers. Our philosophy revolves around three core principles:</p>
+              <p className="text-gray-700">As your dedicated developer, I am dedicated to crafting exceptional digital solutions and services for our clients. My philosophy is built upon three fundamental principles:</p>
             </div>
           </section>
           <section className="py-1 mx-6">
             <div className="container mx-auto px-4">
-              <h2 className="text-2xl font-bold mb-4">Quality Products</h2>
-              <p className="text-gray-700">We believe in offering only the highest quality products to our customers. Each item in our collection is carefully curated and sourced from trusted suppliers. Our commitment to quality ensures that our customers receive durable and reliable products that exceed their expectations.</p>
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">Quality Code</h2>
+              <p className="text-gray-700">I firmly believe in delivering code of the highest quality to our clients. Each line of code is meticulously written, reviewed, and optimized. Our dedication to quality ensures that our clients receive reliable and maintainable solutions that surpass their expectations.</p>
             </div>
           </section>
           <section className="py-1 mx-6">
             <div className="container mx-auto px-4">
-              <h2 className="text-2xl font-bold mb-4">Innovation and Trends</h2>
-              <p className="text-gray-700">As a retail company, we stay up-to-date with the latest trends and innovations in the industry. We constantly refresh our product offerings to provide our customers with the most cutting-edge and stylish options. Our commitment to innovation ensures that our customers have access to the latest and trendiest products in the market.</p>
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">Innovation and Techonology</h2>
+              <p className="text-gray-700">As developer, I stay on the forefront of technological advancements and industry trends. I consistently update my skillset to offer my clients the most modern and innovative solutions. My commitment to innovation ensures that my clients have access to state-of-the-art digital products and services.</p>
             </div>
           </section>
           <section className="py-1 mx-6">
             <div className="container mx-auto px-4">
-              <h2 className="text-2xl font-bold mb-4">Customer Satisfaction</h2>
-              <p className="text-gray-700">Our customers are at the heart of everything we do. We prioritize their satisfaction and strive to create a delightful shopping experience for each and every customer. Our dedicated customer support team is always ready to assist with any inquiries or concerns, ensuring that our customers feel valued and cared for.</p>
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">Client Satisfaction</h2>
+              <p className="text-gray-700">Clients are central to my mission. I prioritize their satisfaction and aim to create an outstanding development experience for each project. I am always readily available to address any inquiries or concerns, ensuring that my clients feel supported and valued throughout the development process.</p>
             </div>
           </section>
         </InfoPageTemplate>
