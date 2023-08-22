@@ -19,7 +19,7 @@ type Props = {
 const ProductCard = (props: Props) => {
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto" >
-        <img className="object-cover w-full rounded-md h-80" src={props.images[0]} alt="T-Shirt"/>
+        <img className="object-cover w-full rounded-md h-80" src={props.images[0]||props.images[1]} alt="T-Shirt"/>
         <h4 className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200 w-48 h-14 overflow-hidden whitespace-wrap overflow-ellipsis">{props.title}</h4>
         <p className="text-blue-500">${props.price}</p>
 

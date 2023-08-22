@@ -11,7 +11,7 @@ const LandingPage = () => {
         {/* Main CTA */}
         <section className="bg-white dark:bg-gray-900 w-full mx-auto">
           <div className="grid w-full px-6 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-              <div className="w-full flex flex-col items-center place-self-center lg:col-span-7 pb-6 pl-4">
+              <div className="w-full flex flex-col items-center place-self-center lg:col-span-7 pb-6 lg:pl-16">
                   <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white text-center text-gray-800">Bridging Imagination and Functionality through Code</h1>
                   <p className="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Welcome to my portfolio showcasing a fusion of innovation and functionality. As a dedicated developer, I specialize in transforming ideas into seamless, interactive digital experiences. Explore my projects that reflect a passion for clean code and user-centric design.</p>
       
@@ -21,7 +21,7 @@ const LandingPage = () => {
               </div>
               <div className=" lg:mt-0 lg:col-span-5 flex rounded-lg  justify-center items-center">
                 <div className='flex w-2/3'>
-                  <img src="/fotor-ai.jpg" alt="mockup" className="rounded-lg " />
+                  <img src="/myself.png" alt="mockup" className="rounded-lg " />
                 </div>
               </div>                
           </div>
@@ -29,11 +29,14 @@ const LandingPage = () => {
         {/* Ideas Section */}
         <section className='relative flex flex-row w-full px-6 py-3 lg:gap-4 xl:gap-0 lg:py-16 fex-wrap text-white bg-weird'>
         <div className='w-1/4 flex flex-col justify-start gap-2 items-center pt-2 mx-auto'>
+            <img src="html.png" title="Free HTML 3D Icon by Toms Design" width={50}/>
             <img src="css.png" title="Free CSS 3D Icon by Toms Design" width={50}/>
+            <img src="javascript.png" title="Free Javascript 3D Icon by Toms Design" width={50}/>
             <img src="tailwind.png" title="Free Tailwind 3D Icon by Toms Design" width={50}/>
             <img src="typescript.png" title="Free TypeScript 3D Icon by Toms Design" width={50}/>
             <img src="react.png" title="Free React 3D Icon by Toms Design" width={50}/>
             <img src="vue.png" title="Free Vue 3D Icon by Toms Design" width={50}/>
+            <img src="wordpress.png" title="Free Wordpress 3D Icon by Toms Design" width={50}/>
           </div>
           <div className='text-5xl font-bold flex items-center justify-center pr-4'>
             <h2 className='text-center mx-auto my-6 lg:pr-14'>

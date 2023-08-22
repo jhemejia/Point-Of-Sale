@@ -1,15 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import { productsSlice } from './Reducers/productsSlice'
+import { productsSlice } from './Reducers/Store/productsSlice'
 // ...
+
+const storeReducer = combineReducers({
+  products:productsSlice.reducer
+})
 
 export const store = configureStore({
   reducer: {
-    store: {
-        products: productsSlice.reducer
-    }
+    store: storeReducer
+    
   },
 })
+
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>

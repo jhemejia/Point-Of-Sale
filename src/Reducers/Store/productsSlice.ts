@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import type { RootState } from '../store'
-import { Item } from '../Types/StoreTypes'
+import { createSlice, createAsyncThunk, createDraftSafeSelector } from '@reduxjs/toolkit'
+import { type RootState } from '../../store'
+import { Item } from '../../Types/StoreTypes'
 import axios from 'axios'
 
 // Define a type for the slice state
@@ -11,11 +11,12 @@ interface ProductsState {
   }
   
   // Define the initial state using that type
-  const initialState: ProductsState = {
+  const initialState = {
     data: [] ,
     isLoading: false,
     hasError: false,
-  }
+  } as ProductsState
+  // fetch products from api
   export const loadProducts = createAsyncThunk<Item[]>(
     'products/loadProducts',
     async () => {
@@ -30,15 +31,14 @@ interface ProductsState {
   
   export const productsSlice = createSlice({
     name: 'products',
-    // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
     },
     extraReducers:(builder)=>{
-        builder.addCase(loadProducts.pending,(state, action)=>{
+        builder.addCase(loadProducts.pending,(state)=>{
             state.isLoading = true;
             state.hasError = false;
-            state.data = action.payload
+            state.data = []
         })
         builder.addCase(loadProducts.fulfilled,(state, action)=>{
             state.isLoading = false;
@@ -53,4 +53,10 @@ interface ProductsState {
     }
   })
   
-  export const selectProducts = (state: RootState) => state.products
+// use the selectSelf and create draftSafeSelectors for slice
+ const selectSelf = (state: RootState) => state
+
+  export const selectStore = createDraftSafeSelector(
+    selectSelf,
+    (state) => state.store
+  )
