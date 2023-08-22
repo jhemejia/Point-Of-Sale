@@ -10,9 +10,15 @@ import ErrorPage from './Components/organisms/ErrorPage.tsx';
 import App from './App.tsx';
 import Login from './Components/pages/Login.tsx';
 import Signup from './Components/pages/Signup.tsx';
-import WhoWeArePage from './Components/organisms/WhoWeArePage.tsx';
-import OurPhilosophyPage from './Components/organisms/OurPhilosophyPage.tsx';
+import WhoIAmPage from './Components/organisms/WhoIAmPage.tsx';
+import MyPhilosophyPage from './Components/organisms/MyPhilosophyPage.tsx';
 import ProfilePage from './Components/pages/ProfilePage.tsx';
+import { store } from './store.ts';
+import { Provider } from 'react-redux';
+import Store from './Components/pages/Store.tsx';
+import LandingPage from './Components/organisms/LandingPage.tsx';
+import MyWorkPage from './Components/pages/MyWorkPage.tsx';
+import ContactPage from './Components/pages/ContactPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -21,22 +27,39 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children:[
       {
-        path:"who-we-are",
-        element:<WhoWeArePage />
+        path:"/",
+        element:<LandingPage />
       },
       {
-        path:"our-philosophy",
-        element:<OurPhilosophyPage />
+        path:"my-work",
+        element:<MyWorkPage />
+      },
+      {
+        path:"about",
+        element:<WhoIAmPage />
+      },
+      {
+        path:"my-philosophy",
+        element:<MyPhilosophyPage />
+      },
+      {
+        path:"contact",
+        element:<ContactPage />
       },
     ]
   },
   {
     path: "/main",
     element: <App />,
+    errorElement: <ErrorPage />,
     children:[
       {
         path: "profile",
         element: <ProfilePage /> ,
+      },
+      {
+        path: "store",
+        element: <Store /> ,
       },
     ]
   },
@@ -54,7 +77,9 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+    <Provider store={store}>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </Provider>
 )

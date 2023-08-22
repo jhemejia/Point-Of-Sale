@@ -1,7 +1,7 @@
 
 const ProfilePage = () => {
   return (
-        <div className="mx-auto p-5 bg-grey-100 h-full">
+        <div className="mx-auto p-5 bg-gray-100 h-full">
             <div className="md:flex no-wrap  h-full">
             {/* <!-- Left Side --> */}
             <div className="flex flex-col md:w-3/12 lg:w-3/12 pr-3">
@@ -12,13 +12,13 @@ const ProfilePage = () => {
                             src="https://picsum.photos/400"
                             alt="" />
                     </div>
-                    <h1 className="text-grey-900 font-bold text-xl leading-8 my-1">Jane Doe</h1>
-                    <h3 className="text-grey-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
-                    <p className="text-sm text-grey-500 hover:text-grey-600 leading-6">Lorem ipsum dolor sit amet
+                    <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">Jane Doe</h1>
+                    <h3 className="text-gray-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
+                    <p className="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
                         consectetur adipisicing elit.
                         Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
                     <ul
-                        className="bg-grey-100 text-grey-600 hover:text-grey-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                        className="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                         <li className="flex items-center py-3">
                             <span>Status</span>
                             <span className="ml-auto"><span
@@ -34,8 +34,8 @@ const ProfilePage = () => {
                 <div className="my-4"></div>
                 {/* <!-- Friends card --> */}
                 <div className="bg-white p-3 hover:shadow">
-                    <div className="flex items-center space-x-3 font-semibold text-grey-900 text-xl leading-8">
-                        <span className="text-grey-500">
+                    <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
+                        <span className="text-gray-500">
                             <svg className="h-5 fill-current" xmlns="http://www.w3.org/2000/svg" fill="white"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -78,8 +78,8 @@ const ProfilePage = () => {
                 {/* <!-- Profile tab --> */}
                 {/* <!-- About Section --> */}
                 <div className="bg-white p-3 shadow-sm rounded-sm">
-                    <div className="flex items-center space-x-2 font-semibold text-grey-900 leading-8">
-                        <span className="text-grey-500">
+                    <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                        <span className="text-gray-500">
                             <svg className="h-5" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -88,7 +88,7 @@ const ProfilePage = () => {
                         </span>
                         <span className="tracking-wide">About</span>
                     </div>
-                    <div className="text-grey-700">
+                    <div className="text-gray-700">
                         <div className="grid md:grid-cols-2 text-sm">
                             <div className="grid grid-cols-2">
                                 <div className="px-4 py-2 font-semibold">First Name</div>
@@ -127,7 +127,7 @@ const ProfilePage = () => {
                         </div>
                     </div>
                     <button
-                        className="block w-full text-blue-500 text-sm font-semibold rounded-lg hover:bg-grey-100 focus:outline-none focus:shadow-outline focus:bg-grey-100 hover:shadow-xs p-3 my-4">Show
+                        className="block w-full text-blue-500 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
                         Full Information</button>
                 </div>
                 {/* <!-- End of about section --> */}
@@ -139,8 +139,8 @@ const ProfilePage = () => {
 
                     <div className="grid grid-cols-2">
                         <div>
-                            <div className="flex items-center space-x-2 font-semibold text-grey-900 leading-8 mb-3">
-                                <span className="text-grey-500">
+                            <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                                <span className="text-gray-500">
                                     <svg className="h-5" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"
                                         stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -152,25 +152,25 @@ const ProfilePage = () => {
                             <ul className="list-inside space-y-2">
                                 <li>
                                     <div className="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div className="text-grey-500 text-xs">March 2020 - Now</div>
+                                    <div className="text-gray-500 text-xs">March 2020 - Now</div>
                                 </li>
                                 <li>
                                     <div className="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div className="text-grey-500 text-xs">March 2020 - Now</div>
+                                    <div className="text-gray-500 text-xs">March 2020 - Now</div>
                                 </li>
                                 <li>
                                     <div className="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div className="text-grey-500 text-xs">March 2020 - Now</div>
+                                    <div className="text-gray-500 text-xs">March 2020 - Now</div>
                                 </li>
                                 <li>
                                     <div className="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div className="text-grey-500 text-xs">March 2020 - Now</div>
+                                    <div className="text-gray-500 text-xs">March 2020 - Now</div>
                                 </li>
                             </ul>
                         </div>
                         <div>
-                            <div className="flex items-center space-x-2 font-semibold text-grey-900 leading-8 mb-3">
-                                <span className="text-grey-500">
+                            <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                                <span className="text-gray-500">
                                     <svg className="h-5" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"
                                         stroke="currentColor">
                                         <path fill="#fff" d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -185,11 +185,11 @@ const ProfilePage = () => {
                             <ul className="list-inside space-y-2">
                                 <li>
                                     <div className="text-teal-600">Masters Degree in Oxford</div>
-                                    <div className="text-grey-500 text-xs">March 2020 - Now</div>
+                                    <div className="text-gray-500 text-xs">March 2020 - Now</div>
                                 </li>
                                 <li>
                                     <div className="text-teal-600">Bachelors Degreen in LPU</div>
-                                    <div className="text-grey-500 text-xs">March 2020 - Now</div>
+                                    <div className="text-gray-500 text-xs">March 2020 - Now</div>
                                 </li>
                             </ul>
                         </div>
