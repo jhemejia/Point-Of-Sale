@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import { productsSlice } from './Reducers/Store/productsSlice'
+import { productsSlice } from '../Reducers/Store/productsSlice'
 // ...
 
 const storeReducer = combineReducers({

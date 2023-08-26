@@ -24,7 +24,7 @@ const Dashboard = () => {
             </div>
             <div className="flex h-full">
                 {/* <!-- aside --> */}
-                <aside className={[" w-72 h-full space-y-2 border-r-2 border-gray-100 bg-white p-2 ",!aSideOpen?"hidden":""].join("")
+                <aside className={[" w-72 h-full space-y-2 border-r-2 border-gray-100 bg-white p-2 ",!aSideOpen?"hidden":""].join("")}
                     >
                     <Link to='' className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 ">
                         <span className="text-2xl"><i className="bx bx-home"></i></span>

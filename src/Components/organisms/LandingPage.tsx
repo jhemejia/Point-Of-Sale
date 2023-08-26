@@ -27,7 +27,7 @@ const LandingPage = () => {
           </div>
         </section>
         {/* Ideas Section */}
-        <section className='relative flex flex-row w-full px-6 py-3 lg:gap-4 xl:gap-0 lg:py-16 fex-wrap text-white bg-weird'>
+        <section className='relative flex flex-row px-6 min-w-full py-3 lg:gap-4 xl:gap-0 lg:py-16 fex-wrap text-white bg-weird'>
         <div className='w-1/4 flex flex-col justify-start gap-2 items-center pt-2 mx-auto'>
             <img src="html.png" title="Free HTML 3D Icon by Toms Design" width={50}/>
             <img src="css.png" title="Free CSS 3D Icon by Toms Design" width={50}/>
@@ -62,7 +62,7 @@ const LandingPage = () => {
                     return (
                       <span
                         key={index} 
-                        className={["underline cursor-pointer mb-2",faqCategory === category? "text-indigo-800": ""].join(" ")}
+                        className={["cursor-pointer mb-2 hover:text-gray-500",faqCategory === category? "text-indigo-800 underline": ""].join(" ")}
                         onClick={() => setFaqCategory(category)} 
                       >
                         {category.title}

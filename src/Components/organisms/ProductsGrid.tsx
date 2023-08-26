@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import ProductCard from '../molecules/ProductCard';
 import { Item } from '../../Types/StoreTypes';
 
@@ -8,21 +7,10 @@ interface ProductsGridProps {
 }
 
 const ProductsGrid = (props:ProductsGridProps) => {
-/*   const productCategories = [
-    "Jackets & Coats",
-    "Hoodies",
-    "T-shirts & Vests",
-    "Shirts",
-    "Blazers & Suits",
-    "Jeans",
-    "Trousers",
-    "Shorts",
-    "Underwear"
-  ]; */
-  
 
   const [ sort, setSort ] = useState('recommended')
   const [ categories, setCategories ] = useState<any[]|undefined>([])
+  const [ selectedCategory, setSelectedCategory ] = useState()
 
   const getProductCategories = (items: Item[] | undefined) => {
     const categoriesSet = new Set();
@@ -53,10 +41,16 @@ const ProductsGrid = (props:ProductsGridProps) => {
     <section className="bg-white dark:bg-gray-900 flex mx-auto w-full">
         <div className=" px-6 py-8 mx-auto flex w-full">
             <div className="lg:flex lg:-mx-2">
-                <div className="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
+                <div className="flex flex-col space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
                   {categories?.map((category,index)=>{
-                    return(
-                    <Link to="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline" key={index}>{category}</Link>
+                    return (
+                      <span
+                        key={index} 
+                        className={["underline cursor-pointer",category === selectedCategory? "text-indigo-800": ""].join(" ")}
+                        onClick={() => setSelectedCategory(category)} 
+                      >
+                        {category}
+                      </span>
                     )
                   })}
                 </div>
