@@ -1,31 +1,76 @@
+import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
+import AsyncButton from "../atoms/AsyncButton";
+import { FirebaseServiceKey } from '../../Services/FirebaseService';
+
+interface UserData{
+    email: string
+    password: string
+}
 
 const Login = () => {
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const initialState = {
+        email: "",
+        password: ""
+    }
+    const [userData, setUserData ] = useState<UserData>(initialState);
+    const email = "test@1234test.com"
+    const password = "123A!abc"
+
+    useEffect(()=>{
+        setUserData({
+            email: email,
+            password: password
+        })
+    },[])
+
+    const handleChange = ( event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
+        const { name, value } = event.target;
+        setUserData((prevFormData) => ({
+          ...prevFormData,
+          [name]: value,
+        }));
+    }
+
+
+    const handleFormSubmit =async (event:any)=>{
+        event.preventDefault();
+        try{
+            setIsLoading(true)
+            FirebaseServiceKey.auth.signInWithEmail(userData.email, userData.password)
+        }catch(error){
+            console.log(error)
+        }
+        setUserData(initialState)
+        setIsLoading(false)
+
+    }
+    
   return (
     <>
     <section className="flex flex-col md:flex-row h-screen items-center">
         <div className="bg-indigo-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
             <img src="https://source.unsplash.com/random" alt="" className="w-full h-full object-cover" />
         </div>
-        <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+        <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
                 flex items-center justify-center">
             <div className="w-full h-100">
                 <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
-                <form className="mt-6" action="#" method="POST">
+                <form className="mt-6" onSubmit={handleFormSubmit}>
                     <div>
                         <label className="block text-gray-700">Email Address</label>
-                        <input type="email" name="email" id="login-email" placeholder="Enter Email Address" className="w-full px-4 py-3 mt-2 text-gray-700 bg-white border border-gray-500 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" required/>
+                        <input type="email" onChange={handleChange} value={userData.email} name="email" id="login-email" placeholder="Enter Email Address" className="w-full px-4 py-3 mt-2 text-gray-700 bg-white border border-gray-500 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" required/>
                     </div>
                     <div className="mt-4">
                         <label className="block text-gray-700">Password</label>
-                        <input type="password" name="password" id="login-password" placeholder="Enter Password" minLength={6} className="w-full px-4 py-3 mt-2 text-gray-700 bg-white border border-gray-500 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" required/>
+                        <input type="password" onChange={handleChange} value={userData.password} name="password" id="login-password" placeholder="Enter Password" minLength={6} className="w-full px-4 py-3 mt-2 text-gray-700 bg-white border border-gray-500 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" required/>
                     </div>
                     <div className="text-right mt-2">
                         <a href="#" className="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Forgot Password?</a>
                     </div>
-                    <button type="submit" className="w-full block bg-indigo-500 hover:bg-indigo-300 focus:bg-indigo-200 text-white font-semibold rounded-lg 
-                        px-4 py-3 mt-6">Log In</button>
+                    <AsyncButton text={"Log In"} isLoading={isLoading} />
                 </form>
                 <div className="my-6 border-gray-300 w-full">
                     <button type="button" className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-200 hover:border-blue-400 dark:hover:border-blue-300 hover:outline-none hover:ring hover:ring-opacity-40 hover:ring-blue-300">

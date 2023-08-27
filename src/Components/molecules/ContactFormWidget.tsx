@@ -74,7 +74,7 @@ const ContactForm = () => {
         <div  id="web3forms__widget" ref={widgetRef}> 
             <div
                 id="w3f__widget--content"
-                className={["fixed flex flex-col z-50 bottom-[100px] top-0 right-0 h-auto left-0 sm:top-auto sm:right-5 sm:left-auto h-[calc(90%-75px)] w-full sm:w-[350px] overflow-auto  border border-gray-300 bg-white shadow-2xl rounded-md ",open?"":"hidden"].join(" ")}
+                className={["fixed flex flex-col z-50 bottom-[100px] top-0 right-0 left-0 sm:top-auto sm:right-5 sm:left-auto h-[calc(90%-75px)] w-full sm:w-[350px] overflow-auto  border border-gray-300 bg-white shadow-2xl rounded-md ",open?"":"hidden"].join(" ")}
                 
             >
                 <div className="flex p-2 flex-col justify-center items-center py-4 bg-indigo-600">
