@@ -1,4 +1,4 @@
-import { store } from './Stores/store.ts';
+import { store } from './Stores/index.ts';
 import { Provider } from 'react-redux';
 import React from 'react'
 import ReactDOM from 'react-dom/client'

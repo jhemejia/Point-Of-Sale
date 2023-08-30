@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import ProductsGrid from '../organisms/ProductsGrid'
-import { useAppDispatch, useAppSelector } from '../../Stores/store';
+import { useAppDispatch, useAppSelector } from '../../Stores';
 import { loadProducts, selectStore } from '../../Reducers/Store/productsSlice';
 import { Item } from '../../Types/StoreTypes';
 

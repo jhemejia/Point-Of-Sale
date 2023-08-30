@@ -35,4 +35,5 @@ class FirebaseService{
 }
 export default FirebaseService;
 
-export const FirebaseServiceKey = new FirebaseService();
+const FirebaseServiceKey = new FirebaseService();
+export const useAuth = ()=> FirebaseServiceKey.auth

@@ -3,7 +3,13 @@ import { getAuth,
     signInWithEmailAndPassword,
     GoogleAuthProvider,
     signInWithPopup,
-    signOut } from "firebase/auth";
+    signOut, 
+    UserCredential,
+    onAuthStateChanged,
+    type Unsubscribe,
+    sendPasswordResetEmail,
+    } from "firebase/auth";
+import { AuthState } from "../Reducers/UserSlice";
 
 export class FirebaseAuthService{
     private auth;
@@ -15,12 +21,11 @@ export class FirebaseAuthService{
     this.provider = new GoogleAuthProvider()
     }
 
-    public createNewUserWithEmail(email:string, password:string){
+    public createNewUserWithEmail(email:string, password:string) {
         createUserWithEmailAndPassword(this.auth, email, password )
         .then((userCredential) => {
             // Signed in user
             const user = userCredential.user;
-            // ...
             return user
         })
         .catch((error) => {
@@ -28,45 +33,43 @@ export class FirebaseAuthService{
             const errorMessage = error.message;
             throw new Error(`Authentication Error: ${errorCode} - ${errorMessage}`)
         });
+        return null;
     }
-    public  signInWithEmail(email:string, password:string){
-        signInWithEmailAndPassword(this.auth, email, password )
-        .then((userCredential) => {
-            // Signed in user
+    public async signInWithEmail(email: string, password: string): Promise<AuthState> {
+        try {
+            const userCredential: UserCredential = await signInWithEmailAndPassword(this.auth, email, password);
             const user = userCredential.user;
-           console.log("📘 %cUser signed in with email and pass: ",
-           "color:dodgerblue",user)
-            return user
-        })
-        .catch((error) => {
+            // console.log("📘 %cUser signed in with email and pass:", "color:dodgerblue", userCredential);
+            const relevantUserData = {
+                uid: user.uid,
+                email: user.email,
+                emailVerified: user.emailVerified,
+                phone: user.phoneNumber,
+                photoUrl: user.photoURL,
+                name: user.displayName,
+                provider: user.providerId
+            }
+            return relevantUserData;
+        } catch (error:any) {
             const errorCode = error.code;
             const errorMessage = error.message;
-            throw new Error(`Authentication Error: ${errorCode} - ${errorMessage}`)
-        });
+            throw new Error(`Authentication Error: ${errorCode} - ${errorMessage}`);
+        }
     }
-    public signInwithGoogle(){
-        signInWithPopup(this.auth, this.provider)
-        .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential?.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            // IdP data available using getAdditionalUserInfo(result)
-            console.log("📘 %cUser signed in with google: ",
-            "color:dodgerblue",user);
-            // ...
-        }).catch((error) => {
-            // Handle Errors here.
+    public async signInwithGoogle(): Promise<UserCredential>{
+        try {
+            const result = await signInWithPopup(this.auth, this.provider);        
+            const credential = GoogleAuthProvider.credentialFromResult(result);    
+            console.log("📘 %cUser signed in with google:", "color:dodgerblue", credential);
+    
+            return result 
+        } catch (error:any) {
             const errorCode = error.code;
             const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.customData.email;
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            
-            throw new Error(`Google Login Error for ${email}: ${errorCode} - ${errorMessage}`)
-        });
+            const email = error.customData?.email;
+    
+            throw new Error(`Google Login Error for ${email}: ${errorCode} - ${errorMessage}`);
+        }
     }
     public signOutUser(){
         signOut(this.auth)
@@ -78,5 +81,15 @@ export class FirebaseAuthService{
         .catch((error)=>{
             throw new Error(`⚠️ Google Login Error: ${error.code} - ${error.message}`)
         })
+    }
+    
+    public onAuthStateChange(callback: any): Unsubscribe{
+      return  onAuthStateChanged(this.auth, callback)
+    }
+    public sendPasswordReset(email: string): Promise<void>{
+      return  sendPasswordResetEmail(this.auth, email)
+    }
+    public getCurrentUser(){
+        return this.auth.currentUser;
     }
 }
