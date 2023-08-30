@@ -11,7 +11,7 @@ import LandingPage from '../Components/organisms/LandingPage.tsx';
 import MyWorkPage from '../Components/pages/MyWorkPage.tsx';
 import ContactPage from '../Components/pages/ContactPage.tsx';
 import { createBrowserRouter } from "react-router-dom";
-import AuthProvider from "./AuthProvider.tsx";
+import PrivateRoute from "./PrivateRoute.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -43,9 +43,9 @@ export const router = createBrowserRouter([
   },
   {
     path: "/main",
-    element: <AuthProvider>
+    element: <PrivateRoute>
                 <LayoutTemplate />
-              </AuthProvider>,
+              </PrivateRoute>,
     errorElement: <ErrorPage />,
     children:[
       {

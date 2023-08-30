@@ -1,7 +1,7 @@
 import { createDraftSafeSelector, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../Stores";
 
-export interface AuthState {
+export interface UserData {
     uid: string | null;
     email: string | null;
     emailVerified: boolean;
@@ -11,14 +11,12 @@ export interface AuthState {
     provider: string;
 }
 
+export interface AuthState {
+    user: UserData | null;
+}
+
 const initialState: AuthState = {
-    uid: null,
-    email: null,
-    emailVerified: false,
-    phone: null,
-    photoUrl: null,
-    name: null,
-    provider: '',
+    user: null,
 };
 
 
@@ -28,7 +26,7 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         logUser(state, action ){
-            state = action.payload;
+            state.user = action.payload;
         }
     }
 })
@@ -38,7 +36,7 @@ const selectSelf = (state: RootState) => state
 
 export const selectUser = createDraftSafeSelector(
   selectSelf,
-  (state) => state.user
+  (state) => state.user.user
 )
 
 export const { logUser } = userSlice.actions

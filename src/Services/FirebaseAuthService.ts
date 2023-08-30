@@ -9,7 +9,7 @@ import { getAuth,
     type Unsubscribe,
     sendPasswordResetEmail,
     } from "firebase/auth";
-import { AuthState } from "../Reducers/UserSlice";
+import { UserData } from "../Reducers/UserSlice";
 
 export class FirebaseAuthService{
     private auth;
@@ -35,7 +35,7 @@ export class FirebaseAuthService{
         });
         return null;
     }
-    public async signInWithEmail(email: string, password: string): Promise<AuthState> {
+    public async signInWithEmail(email: string, password: string): Promise<UserData> {
         try {
             const userCredential: UserCredential = await signInWithEmailAndPassword(this.auth, email, password);
             const user = userCredential.user;

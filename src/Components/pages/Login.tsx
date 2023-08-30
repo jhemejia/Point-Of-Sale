@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 import AsyncButton from "../atoms/AsyncButton";
 import { useAuth } from '../../Services/FirebaseService';
-import { useDispatch } from 'react-redux';
-import { logUser } from '../../Reducers/UserSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { logUser, selectUser } from '../../Reducers/UserSlice';
 
-interface UserData{
+interface userLoginData{
     email: string
     password: string
 }
@@ -13,13 +13,14 @@ interface UserData{
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const loggedUser = useSelector(selectUser);
     const auth = useAuth();
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const initialState = {
         email: "",
         password: ""
     }
-    const [userData, setUserData ] = useState<UserData>(initialState);
+    const [userData, setUserData ] = useState<userLoginData>(initialState);
     const email = "test@1234test.com"
     const password = "123A!abc"
 
@@ -29,6 +30,12 @@ const Login = () => {
             password: password
         })
     },[])
+
+    useEffect(()=>{
+        if(loggedUser){
+            navigate("/main")
+        }
+    },[loggedUser])
 
     const handleChange = ( event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
         const { name, value } = event.target;
@@ -45,8 +52,6 @@ const Login = () => {
             setIsLoading(true)
             const loggedUser = await auth.signInWithEmail(userData.email, userData.password)
             dispatch(logUser(loggedUser))
-            console.log(loggedUser)
-            navigate("/main")
         }catch(error){
             console.log(error)
         } finally{
