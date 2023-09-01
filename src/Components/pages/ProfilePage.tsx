@@ -1,5 +1,13 @@
+import { useSelector } from "react-redux"
+import { selectUser } from "../../Reducers/UserSlice"
+import { useEffect } from "react"
 
 const ProfilePage = () => {
+    const user = useSelector(selectUser)
+    const defProfilePic = "../../../public/USER-IMAGEN-DEF.JPEG"
+    useEffect(()=>{
+        console.log(user)
+    },[])
   return (
         <div className="mx-auto p-5 bg-gray-100 h-full">
             <div className="md:flex no-wrap  h-full">
@@ -9,7 +17,7 @@ const ProfilePage = () => {
                 <div className="bg-white p-3  border-t-4 border-green-400">
                     <div className="image overflow-hidden">
                         <img className="h-auto w-full mx-auto"
-                            src="https://picsum.photos/400"
+                            src={user?.photoUrl || defProfilePic}
                             alt="" />
                     </div>
                     <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">Jane Doe</h1>
@@ -115,9 +123,9 @@ const ProfilePage = () => {
                                 <div className="px-4 py-2">Arlington Heights, IL, Illinois</div>
                             </div>
                             <div className="grid grid-cols-2">
-                                <div className="px-4 py-2 font-semibold">Email.</div>
+                                <div className="px-4 py-2 font-semibold">Email</div>
                                 <div className="px-4 py-2">
-                                    <a className="text-blue-500" href="mailto:jane@example.com">jane@example.com</a>
+                                    <a className="text-blue-500" href={"mailto:"+user?.email}>{user?.email}</a>
                                 </div>
                             </div>
                             <div className="grid grid-cols-2">

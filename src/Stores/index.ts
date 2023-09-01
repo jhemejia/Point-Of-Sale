@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import { productsSlice } from './Reducers/Store/productsSlice'
+import { productsSlice } from '../Reducers/Store/productsSlice'
+import { userSlice } from '../Reducers/UserSlice'
 // ...
 
 const storeReducer = combineReducers({
@@ -9,7 +10,8 @@ const storeReducer = combineReducers({
 
 export const store = configureStore({
   reducer: {
-    store: storeReducer
+    store: storeReducer,
+    user: userSlice.reducer
     
   },
 })

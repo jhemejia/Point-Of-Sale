@@ -28,7 +28,7 @@ const home = () => {
             </div>
         </div>
       </header>
-      <div className="h-full max-w-full relative ">
+      <div className="h-full max-w-full min-w-full relative ">
         <Outlet/> 
         <ContactFormWidget />
       </div>
