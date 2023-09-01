@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, createDraftSafeSelector } from '@reduxjs/toolkit'
-import { type RootState } from '../../Stores/store'
+import { type RootState } from '../../Stores'
 import { Item } from '../../Types/StoreTypes'
 import axios from 'axios'
 

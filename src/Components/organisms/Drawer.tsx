@@ -7,7 +7,6 @@ const Dashboard = () => {
     // declare variables
     const [aSideOpen, setASideOpen] = useState(false);
     const [profileDiv, setProfileDiv] = useState(false);
-    const profileImageUrl = 'https://picsum.photos/40';
 
     useEffect(()=>{
         if(profileDiv){
@@ -20,7 +19,7 @@ const Dashboard = () => {
         <main className="flex flex-col h-full bg-light-gray text-gray-700 relative" >
             {/* <!-- header page --> */}
             <div className='flex max-w-full h-14'>
-            <Header aSideOpen={aSideOpen} profileDiv={profileDiv} profileImageUrl={profileImageUrl} setASideOpen={setASideOpen} setProfileDiv={setProfileDiv} />
+            <Header aSideOpen={aSideOpen} profileDiv={profileDiv} setASideOpen={setASideOpen} setProfileDiv={setProfileDiv} />
             </div>
             <div className="flex h-full">
                 {/* <!-- aside --> */}

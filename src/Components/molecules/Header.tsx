@@ -1,10 +1,12 @@
 import Icon from '@mdi/react';
 import { mdiMenu } from '@mdi/js';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeUser, selectUser } from '../../Reducers/UserSlice';
+import { useAuth } from '../../Services/FirebaseService';
 
 type HeaderProps = {
-    profileImageUrl: string,
     aSideOpen: boolean,
     profileDiv:boolean,
     setASideOpen: Function,
@@ -12,13 +14,24 @@ type HeaderProps = {
 }
 
 const Header = (props:HeaderProps) => {
-
-    const [ logo, setLogo] = useState('');
+    const defProfilePic = "../../../public/USER-IMAGEN-DEF.JPEG"
+    const user = useSelector(selectUser)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const auth = useAuth()
+    const [ logo, setLogo] = useState('')
 
    useEffect(()=>{
     setLogo('/logo.png')
    },[])
 
+   const signOut = async()=>{
+    const loggedOut = await auth.signOutUser();
+    if(loggedOut){
+        dispatch(removeUser())
+        navigate("/")
+    }
+   }
   return (
     <>
     <header className="flex w-full items-center justify-between border-b-2 border-gray-100 bg-white p-2">
@@ -36,14 +49,14 @@ const Header = (props:HeaderProps) => {
                     </div>
                     <button type="button" 
                         className="h-9 w-9 overflow-hidden rounded-full flex justify-center" onClick={()=>{props.setProfileDiv(!props.profileDiv)}}>
-                        <img src={props.profileImageUrl} alt="profile-img" />
+                        <img src={user?.photoUrl || defProfilePic} alt="profile-img" />
                     </button>
 
                    {/*  <!-- dropdown profile --> */}
                     <div className={["absolute right-2 mt-64 w-48 divide-y divide-gray-100 rounded-md border border-gray bg-white shadow-md",props.profileDiv?"":" hidden"].join("")}
                         >
                         <div className="flex items-center space-x-2 p-2">
-                            <img src={props.profileImageUrl} alt="profile-img" className="h-9 w-9 rounded-full" />
+                            <img src={user?.photoUrl || defProfilePic} alt="profile-img" className="h-9 w-9 rounded-full" />
                             <div className="font-medium">Hafiz Haziq</div>
                         </div>
 
@@ -54,7 +67,7 @@ const Header = (props:HeaderProps) => {
                         </div>
 
                         <div className="p-2">
-                            <button className="flex items-center space-x-2 transition hover:text-blue-600">
+                            <button className="flex items-center space-x-2 transition hover:text-blue-600" onClick={signOut}>
                                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
