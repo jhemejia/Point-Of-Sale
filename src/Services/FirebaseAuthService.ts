@@ -9,8 +9,7 @@ import { getAuth,
     type Unsubscribe,
     sendPasswordResetEmail,
     } from "firebase/auth";
-import { UserData, logUser, removeUser } from "../Reducers/UserSlice";
-import { useDispatch } from "react-redux";
+import { UserData } from "../Reducers/UserSlice";
 
 export class FirebaseAuthService{
     private auth;
