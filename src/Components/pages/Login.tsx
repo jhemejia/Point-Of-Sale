@@ -16,6 +16,7 @@ const Login = () => {
     const loggedUser = useSelector(selectUser);
     const auth = useAuth();
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = useState<string>("");
     const initialState = {
         email: "",
         password: ""
@@ -51,9 +52,11 @@ const Login = () => {
         try{
             setIsLoading(true)
             const loggedUser = await auth.signInWithEmail(userData.email, userData.password)
-            dispatch(logUser(loggedUser))
+            if(loggedUser.provider){
+                dispatch(logUser(loggedUser))
+            }
         }catch(error){
-            console.log(error)
+            setErrorMessage("Invalid Email. Please try again.")
         } finally{
             setUserData(initialState)
             setIsLoading(false)
@@ -62,10 +65,12 @@ const Login = () => {
     
     const handleGoogleLogin = async()=>{
         try{
-            const userCredential =  auth.signInwithGoogle()
-            console.log(userCredential)
+            const loggedUser =  await auth.signInwithGoogle()
+            if(loggedUser.provider){
+                dispatch(logUser(loggedUser))
+            }
         } catch(error){
-            console.log(error)
+            setErrorMessage("Oops, something went wrong. Please try again.")
         } 
     }
     
@@ -83,6 +88,7 @@ const Login = () => {
                     <div>
                         <label className="block text-gray-700">Email Address</label>
                         <input type="email" onChange={handleChange} value={userData.email} name="email" id="login-email" placeholder="Enter Email Address" className="w-full px-4 py-3 mt-2 text-gray-700 bg-white border border-gray-500 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" required/>
+                        <p className={["text-red",errorMessage===""? "py-3":""].join(" ")}>{errorMessage}</p> 
                     </div>
                     <div className="mt-4">
                         <label className="block text-gray-700">Password</label>

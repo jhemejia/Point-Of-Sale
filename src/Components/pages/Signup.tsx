@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../Services/FirebaseService";
 import AsyncButton from "../atoms/AsyncButton";
+import { useDispatch } from "react-redux";
+import { logUser } from "../../Reducers/UserSlice";
 
 interface UserData{
     email: string
@@ -10,8 +12,10 @@ interface UserData{
 
 const Signup = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const auth = useAuth();
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = useState<string>("");
     const initialState = {
         email: "",
         password: ""
@@ -36,26 +40,30 @@ const Signup = () => {
     }
 
 
-    const handleFormSubmit =async (event:any)=>{
+    const handleFormSubmit = async(event:any)=>{
         event.preventDefault();
         try{
             setIsLoading(true)
-            const user = auth.createNewUserWithEmail(userData.email, userData.password) 
-            console.log(user)
+            const loggedUser = await auth.createNewUserWithEmail(userData.email, userData.password)
+            if(loggedUser.provider){
+                dispatch(logUser(loggedUser))
+            }
         }catch(error){
-            console.log(error)
+            setErrorMessage("Email is already in use. Please try again.")
         } finally{
             setUserData(initialState)
             setIsLoading(false)
         }
     }
-
+    
     const handleGoogleLogin = async()=>{
         try{
-            const userCredential =  auth.signInwithGoogle()
-            console.log(userCredential)
+            const loggedUser =  await auth.signInwithGoogle()
+            if(loggedUser.provider){
+                dispatch(logUser(loggedUser))
+            }
         } catch(error){
-            console.log(error)
+            setErrorMessage("Oops, something went wrong. Please try again.")
         } 
     }
 
@@ -73,6 +81,7 @@ const Signup = () => {
                       <div>
                           <label className="block text-gray-700">Email Address</label>
                           <input type="email" onChange={handleChange} value={userData.email} name="email" id="signup-email" placeholder="Enter Email Address" className="w-full px-4 py-3 mt-2 text-gray-700 bg-white border border-gray-500 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" required/>
+                          <p className={["text-red",errorMessage===""? "py-3":""].join(" ")}>{errorMessage}</p>
                       </div>
                       <div className="mt-4">
                           <label className="block text-gray-700">Password</label>

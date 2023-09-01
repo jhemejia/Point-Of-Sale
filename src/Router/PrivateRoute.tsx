@@ -13,9 +13,9 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
 
     useEffect(() => {
         setUser(loggedUser);
+        localStorage.setItem("user",JSON.stringify(loggedUser))
     }, [loggedUser]);
     
-    console.log(user)
     return (
     <>
         { user ? children : <Navigate to={"/login"}/>}

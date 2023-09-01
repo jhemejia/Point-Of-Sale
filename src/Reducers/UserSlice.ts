@@ -27,6 +27,9 @@ export const userSlice = createSlice({
     reducers: {
         logUser(state, action ){
             state.user = action.payload;
+        },
+        removeUser(state){
+            state.user = null
         }
     }
 })
@@ -39,4 +42,4 @@ export const selectUser = createDraftSafeSelector(
   (state) => state.user.user
 )
 
-export const { logUser } = userSlice.actions
+export const { logUser, removeUser } = userSlice.actions

@@ -10,6 +10,7 @@ export default {
     },
     colors: {
       'transparent':'#00000000',
+      "red":"#FF0000",
       blue: {
         DEFAULT: '#2196f3',
         50: '#e3f2fd',
