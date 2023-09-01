@@ -1,0 +1,43 @@
+import { createSlice, createAsyncThunk, createDraftSafeSelector } from '@reduxjs/toolkit';
+import axios from 'axios';
+// Define the initial state using that type
+const initialState = {
+    data: [],
+    isLoading: false,
+    hasError: false,
+};
+// fetch products from api
+export const loadProducts = createAsyncThunk('products/loadProducts', async () => {
+    try {
+        const response = await axios.get('https://api.escuelajs.co/api/v1/products');
+        return response.data; // Return the 'data' property directly
+    }
+    catch (error) {
+        throw new Error(error.message);
+    }
+});
+export const productsSlice = createSlice({
+    name: 'products',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(loadProducts.pending, (state) => {
+            state.isLoading = true;
+            state.hasError = false;
+            state.data = [];
+        });
+        builder.addCase(loadProducts.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.hasError = false;
+            state.data = action.payload;
+        });
+        builder.addCase(loadProducts.rejected, (state) => {
+            state.isLoading = false;
+            state.hasError = true;
+            state.data = [];
+        });
+    }
+});
+// use the selectSelf and create draftSafeSelectors for slice
+const selectSelf = (state) => state;
+export const selectStore = createDraftSafeSelector(selectSelf, (state) => state.store);
