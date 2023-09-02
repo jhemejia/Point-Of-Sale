@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../Services/FirebaseService";
 import AsyncButton from "../atoms/AsyncButton";
-import { useDispatch } from "react-redux";
-import { logUser } from "../../Reducers/UserSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logUser, selectUser } from "../../Reducers/UserSlice";
 
 interface UserData{
     email: string
@@ -13,6 +13,7 @@ interface UserData{
 const Signup = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const loggedUser = useSelector(selectUser);
     const auth = useAuth();
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [errorMessage, setErrorMessage] = useState<string>("");
@@ -30,6 +31,12 @@ const Signup = () => {
             password: password
         })
     },[])
+
+    useEffect(()=>{
+        if(loggedUser){
+            navigate("/main")
+        }
+    },[loggedUser])
 
     const handleChange = ( event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
         const { name, value } = event.target;

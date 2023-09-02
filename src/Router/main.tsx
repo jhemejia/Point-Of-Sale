@@ -67,7 +67,9 @@ export const router = createBrowserRouter([
     element: <Signup />,
   },
 
-]);
+],{
+  basename:"/Portfolio/",
+});
 
 
 

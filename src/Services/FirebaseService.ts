@@ -1,7 +1,7 @@
 import { type FirebaseApp, initializeApp } from 'firebase/app';
 import { getAnalytics } from "firebase/analytics";
 import { FirebaseAuthService } from './FirebaseAuthService';
-import { connectAuthEmulator, getAuth } from "firebase/auth";
+// import { connectAuthEmulator, getAuth } from "firebase/auth";
 
 /***
  * Get env vars
@@ -30,7 +30,7 @@ class FirebaseService{
         this. analytics = getAnalytics(this.firebase);
         this.auth = new FirebaseAuthService();
         // Connect to emulators
-        connectAuthEmulator(getAuth(), "http://localhost:9099");
+        // connectAuthEmulator(getAuth(), "http://localhost:9099");
     }
 }
 export default FirebaseService;

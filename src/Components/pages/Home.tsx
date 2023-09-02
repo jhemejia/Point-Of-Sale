@@ -19,12 +19,12 @@ const home = () => {
                 <Link to="/about" className="mr-5 font-medium hover:text-gray-900">About Me</Link>
                 <Link to="/contact" className="font-medium hover:text-gray-900">Contact</Link>
             </nav>
-            <div className="flex flex-nowrap items-center h-full justify-end mx-2">
-                <button onClick={()=>navigate("/login")} className="mr-5 font-medium hover:text-gray-900">Login</button>
-                <button onClick={()=>navigate("/signup")}
-                    className="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 bg-green-500 rounded shadow outline-none active:bg-green-600 hover:shadow-md focus:outline-none ease">
-                    Sign Up
-                </button>
+            <div className="flex flex-nowrap items-center h-full justify-end mx-2 relative">
+                  <button onClick={()=>navigate("/login")} className="mr-5 font-medium hover:text-gray-900">Login</button>
+                  <button onClick={()=>navigate("/signup")}
+                      className="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 bg-green-500 rounded shadow outline-none active:bg-green-600 hover:shadow-md focus:outline-none ease">
+                      Sign Up
+                  </button>
             </div>
         </div>
       </header>

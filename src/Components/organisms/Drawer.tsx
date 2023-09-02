@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Outlet, Link } from 'react-router-dom';
 import Header from '../molecules/Header';
 
@@ -6,20 +6,14 @@ import Header from '../molecules/Header';
 const Dashboard = () => {
     // declare variables
     const [aSideOpen, setASideOpen] = useState(false);
-    const [profileDiv, setProfileDiv] = useState(false);
 
-    useEffect(()=>{
-        if(profileDiv){
-            setTimeout(()=>setProfileDiv(false),3000)
-        }
-    },[profileDiv])
   return (
     <div className="container min-h-screen min-w-full max-h-screen bg-light-gray text-gray-700" >
         {/* <!-- page -->  */}        
         <main className="flex flex-col h-full bg-light-gray text-gray-700 relative" >
             {/* <!-- header page --> */}
             <div className='flex max-w-full h-14'>
-            <Header aSideOpen={aSideOpen} profileDiv={profileDiv} setASideOpen={setASideOpen} setProfileDiv={setProfileDiv} />
+            <Header aSideOpen={aSideOpen}  setASideOpen={setASideOpen} />
             </div>
             <div className="flex h-full">
                 {/* <!-- aside --> */}
