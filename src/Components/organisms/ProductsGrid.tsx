@@ -10,7 +10,7 @@ const ProductsGrid = (props:ProductsGridProps) => {
 
   const [ sort, setSort ] = useState('recommended')
   const [ categories, setCategories ] = useState<any[]|undefined>([])
-  const [ selectedCategory, setSelectedCategory ] = useState()
+  const [ selectedCategory, setSelectedCategory ] = useState("")
 
   const getProductCategories = (items: Item[] | undefined) => {
     const categoriesSet = new Set();
@@ -37,11 +37,22 @@ const ProductsGrid = (props:ProductsGridProps) => {
   setCategories(getProductCategories(props.items))
  },[props.items])
 
+ const filterItems = (items: Item[]|undefined )=>{
+    const filteredItems = items?.filter((item:Item)=>{
+    if(selectedCategory == "" || item.category.name == selectedCategory){
+      return true
+    } 
+    return false
+   })
+   return filteredItems
+ }
   return (
     <section className="bg-white dark:bg-gray-900 flex mx-auto w-full">
         <div className=" px-6 py-8 mx-auto flex w-full">
             <div className="lg:flex lg:-mx-2">
                 <div className="flex flex-col space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
+                      <span className={["underline cursor-pointer", "" === selectedCategory? "text-indigo-800": ""].join(" ")}
+                        onClick={() => setSelectedCategory("")}>All</span>
                   {categories?.map((category,index)=>{
                     return (
                       <span
@@ -57,18 +68,18 @@ const ProductsGrid = (props:ProductsGridProps) => {
 
                 <div className="mt-6 lg:mt-0 lg:px-2 lg:w-4/5 ">
                     <div className="flex items-center justify-between text-sm tracking-widest uppercase ">
-                        <p className="text-gray-500 dark:text-gray-300">{props.items?.length} Items</p>
+                        <p className="text-gray-500 dark:text-gray-300">{filterItems(props.items as Item[])?.length} Items</p>
                         <div className="flex items-center">
                             <p className="text-gray-500 dark:text-gray-300">Sort</p>
                             <select value={sort} onChange={e=>setSort(e.target.value)} className="font-medium text-gray-700 bg-transparent dark:text-gray-500 focus:outline-none">
                                 <option value="recommended">Recommended</option>
-                                <option value="price">Price</option>
+                                <option value="price">Lowest Price</option>
                             </select>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
-                       {props.items?.map((item: Item, index:number)=>{
+                       {filterItems(props.items as Item[])?.map((item: Item, index:number)=>{
                          return (
                            <ProductCard {...item} key={index}/>
                            )

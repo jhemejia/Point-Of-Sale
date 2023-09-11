@@ -27,9 +27,11 @@ export const userSlice = createSlice({
     reducers: {
         logUser(state, action ){
             state.user = action.payload;
+            localStorage.setItem("user", JSON.stringify(action.payload))
         },
         removeUser(state){
             state.user = null
+            localStorage.clear();
         }
     }
 })

@@ -40,10 +40,10 @@ const Footer = () => {
                             <form onSubmit={onFormSubmit}>
                                 <input type="hidden" name="subject" value="New Submission from Contact Me - Portfolio"/>
 
-                                <input value={clientEmail} id="email" type="text" className="px-4 py-2 mb-2 text-gray-800 font-semibold border-gray-400 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" placeholder="Email Address" required
+                                <input value={clientEmail} id="email" type="text" className="px-4 py-2 mb-2 w-full md:w-auto text-gray-800 font-semibold border-gray-400 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" placeholder="Email Address" required
                                 onChange={(e) => setClientEmail(e.target.value)}/>
                         
-                                <button type="submit" className="w-full px-6 py-2.5 text-sm  font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+                                <button type="submit" className="w-full px-6 py-2.5 text-sm mb-4 font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
                                     Contact Me
                                 </button>
                             </form>
@@ -53,7 +53,7 @@ const Footer = () => {
                     <div>
                         <p className="font-semibold text-gray-800 dark:text-white">Quick Links</p>
 
-                        <div className="flex flex-col items-start mt-5 space-y-2">
+                        <div className="flex flex-col items-start my-5 space-y-2">
                             <Link to="/" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Home</Link>
                             <Link to="/about" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Who I Am</Link>
                             <Link to="/my-philosophy" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">My Philosophy</Link>
@@ -63,7 +63,7 @@ const Footer = () => {
                     <div>
                         <p className="font-semibold text-gray-800 dark:text-white">Industries</p>
 
-                        <div className="flex flex-col items-start mt-5 space-y-2">
+                        <div className="flex flex-col items-start my-5 space-y-2">
                             <a href="#" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">E-Commerce & Sales</a>
                             <a href="#" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Marketing</a>
                             <a href="#" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Trucking Compliance & Factoring</a>
@@ -77,7 +77,7 @@ const Footer = () => {
                         </a>
                     
                         <div className="flex mx-2 items-center">
-                            <a href="https://www.linkedin.com/in/jhersondmejiag/" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/jhersondmejiag/"  target="_blank" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="LinkedIn">
                             <svg className="w-6 h-6 hover:fill-blue" viewBox="0 0 24 24" fill="gray"
                                     xmlns="http://www.w3.org/2000/svg">
                             <g>
@@ -86,7 +86,7 @@ const Footer = () => {
                             </svg>
                             </a>
                             
-                            <a href="#" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Facebook">
+                            <a href="#"  target="_blank" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Facebook">
                                 <svg className="w-5 h-5 hover:fill-blue" viewBox="0 0 24 24" fill="gray"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -95,7 +95,7 @@ const Footer = () => {
                                 </svg>
                             </a>
 
-                            <a href="https://github.com/jhemejia/" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Github">
+                            <a href="https://github.com/jhemejia/" target="_blank" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Github">
                                 <svg className="w-5 h-5 hover:fill-blue" viewBox="0 0 24 24" fill="gray"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path

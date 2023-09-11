@@ -21,7 +21,7 @@ const LandingPage = () => {
               </div>
               <div className=" lg:mt-0 lg:col-span-5 flex rounded-lg  justify-center items-center">
                 <div className='flex w-2/3'>
-                  <img src="myself.png" alt="mockup" className="rounded-lg " />
+                  <img src="3f4.jpg" alt="mockup" className="rounded-lg " />
                 </div>
               </div>                
           </div>
@@ -45,6 +45,10 @@ const LandingPage = () => {
           </div>
           
         </section>
+        <section>
+          
+        </section>
+        <div>
         {/*  FAQ Section */}
         <div className="flex flex-col items-center w-full mx-auto pt-4 text-gray-800">
           <h2 className="font-bold text-5xl mt-6 tracking-tight">
@@ -92,6 +96,7 @@ const LandingPage = () => {
                 })}
             </div>
         </section>
+      </div>
     </div>
   )
 }

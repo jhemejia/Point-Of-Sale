@@ -21,6 +21,7 @@ const Login = () => {
         email: "",
         password: ""
     }
+    const localStorageUser = localStorage.getItem("user") 
     const [userData, setUserData ] = useState<userLoginData>(initialState);
     const email = "test@1234test.com"
     const password = "123A!abc"
@@ -38,6 +39,11 @@ const Login = () => {
         }
     },[loggedUser])
 
+    useEffect(()=>{
+        if(localStorageUser){
+            dispatch(logUser(JSON.parse(localStorageUser)))
+        }
+    },[localStorageUser])
     const handleChange = ( event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
         const { name, value } = event.target;
         setUserData((prevFormData) => ({
@@ -51,9 +57,9 @@ const Login = () => {
         event.preventDefault();
         try{
             setIsLoading(true)
-            const loggedUser = await auth.signInWithEmail(userData.email, userData.password)
-            if(loggedUser.provider){
-                dispatch(logUser(loggedUser))
+            const signedInUser = await auth.signInWithEmail(userData.email, userData.password)
+            if(signedInUser.provider){
+                dispatch(logUser(signedInUser))
             }
         }catch(error){
             setErrorMessage("Invalid Email. Please try again.")
@@ -65,9 +71,9 @@ const Login = () => {
     
     const handleGoogleLogin = async()=>{
         try{
-            const loggedUser =  await auth.signInwithGoogle()
-            if(loggedUser.provider){
-                dispatch(logUser(loggedUser))
+            const signedInUser =  await auth.signInwithGoogle()
+            if(signedInUser.provider){
+                dispatch(logUser(signedInUser))
             }
         } catch(error){
             setErrorMessage("Oops, something went wrong. Please try again.")
