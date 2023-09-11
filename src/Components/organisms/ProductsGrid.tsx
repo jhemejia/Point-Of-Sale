@@ -45,16 +45,15 @@ const ProductsGrid = (props:ProductsGridProps) => {
     });
     // Sort the filtered items based on the "sort" parameter
     const sortedItems = [...filteredItems]; // Create a shallow copy to avoid mutating the original array
-    if (sort === "0") {
-      // Sort in ascending order of price
-      sortedItems.sort((a, b) => a.price - b.price);
-    } else if (sort === "1") {
-      // Sort in descending order of price
-      sortedItems.sort((a, b) => b.price - a.price);
+    switch (sort) {
+      case "0": sortedItems.sort((a, b) => a.price - b.price);
+      break;
+      case "1": sortedItems.sort((a, b) => b.price - a.price);
+      break;
     }
     return sortedItems;
   };
-  
+
   return (
     <section className="bg-white dark:bg-gray-900 flex mx-auto w-full">
         <div className=" px-6 py-8 mx-auto flex w-full">
