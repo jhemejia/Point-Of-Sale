@@ -36,7 +36,7 @@ const DropDownProfile = () => {
                         >
                         <div className="flex items-center space-x-2 p-2">
                             <img src={user?.photoUrl || defProfilePic} alt="profile-img" className="h-9 w-9 rounded-full" />
-                            <div className="font-medium">Hafiz Haziq</div>
+                            <div className="font-medium">{user?.name || 'Unknown User'}</div>
                         </div>
 
                         <div className="flex flex-col space-y-3 p-2">

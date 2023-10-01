@@ -14,7 +14,7 @@ const LandingNavigation: React.FC = () => {
         <div className={["antialiased bg-gray-100 dark-mode:bg-gray-900 md:h-auto", open? ' h-full':''].join("")} >
             <div className="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
                 <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-                    <div className="flex flex-row items-center justify-between p-4">
+                    <div className="flex flex-row items-center justify-between p-4 md:py-1">
                         <Link to="/" className="flex items-center font-medium text-gray-900 title-font md:mb-0">
                             <img src="./logo.png" alt="logo" className="w-20 " />
                         </Link>

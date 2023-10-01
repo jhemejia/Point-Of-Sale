@@ -1,5 +1,5 @@
 import { createDraftSafeSelector, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../Stores";
+import { RootState } from "../Redux store";
 
 export interface UserData {
     uid: string | null;
