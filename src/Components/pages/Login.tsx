@@ -89,6 +89,10 @@ const Login = () => {
         <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
                 flex items-center justify-center">
             <div className="w-full h-100">
+            <button onClick={()=>navigate("/")}
+                                className="mx-auto md:mx-1 px-1 py-2 text-xs font-bold text-green uppercase transition-all duration-150  outline-none hover:underline focus:outline-none ease">
+                               &#8592; Go Back
+                            </button>
                 <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
                 <form className="mt-6" onSubmit={handleFormSubmit}>
                     <div>

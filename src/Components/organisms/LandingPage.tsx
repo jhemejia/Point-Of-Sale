@@ -9,11 +9,11 @@ const LandingPage = () => {
   return (
     <div className='flex flex-col justify-center w-full h-full'>
         {/* Main CTA */}
-        <section className="bg-white dark:bg-gray-900 w-full mx-auto">
+        <section className="bg-transparent w-full mx-auto">
           <div className="grid w-full px-6 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
               <div className="w-full flex flex-col items-center place-self-center lg:col-span-7 pb-6 lg:pl-16">
                   <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white text-center text-gray-800">Bridging Imagination and Functionality through Code</h1>
-                  <p className="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Welcome to my portfolio showcasing a fusion of innovation and functionality. As a dedicated developer, I specialize in transforming ideas into seamless, interactive digital experiences. Explore my projects that reflect a passion for clean code and user-centric design.</p>
+                  <p className="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Welcome to my portfolio showcasing a fusion of innovation and functionality. As a dedicated developer, I specialize in transforming ideas into seamless, interactive digital experiences. Explore my projects that reflect a passion for clean code and user-centric design.</p>
       
                   <Link to="/my-work" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center hover:text-gray-900 border text-gray-800 border-gray-300 rounded-lg hover:bg-gray-200 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800 hover:animate-pulse">
                   Experience the Possibilities

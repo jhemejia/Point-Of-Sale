@@ -6,12 +6,17 @@ import LandingNavigation from '../molecules/LandingNavigation';
 const home = () => {
   return (
     <>
-    <div className='flex flex-col items-center justify-between flex-nowrap h-full max-w-screen'>
+    <div className='flex flex-col items-center justify-between flex-nowrap h-full max-w-screen'
+    style={{
+        backgroundImage: `url(/space.jpg)`,
+        backgroundPosition: "bottom",
+        backgroundSize: "cover"
+    }}>
       {/*<!-- Header Menu Left -->*/}    
-      <header className="w-full mt-1 text-gray-700 bg-white shadow-sm body-font relative dark:bg-gray-900">
+      <header className="w-full mt-1 text-white bg-transparent shadow-sm body-font relative">
         <LandingNavigation/>
       </header>
-      <div className="h-full max-w-full min-w-full relative ">
+      <div className="h-screen max-w-full min-w-full relative">
         <Outlet/> 
         <ContactFormWidget />
       </div>

@@ -7,11 +7,11 @@ import WhoIAmPage from '../Components/organisms/WhoIAmPage.tsx';
 import MyPhilosophyPage from '../Components/organisms/MyPhilosophyPage.tsx';
 import ProfilePage from '../Components/pages/ProfilePage.tsx';
 import Store from '../Components/pages/Store.tsx';
-import LandingPage from '../Components/organisms/LandingPage.tsx';
 import MyWorkPage from '../Components/pages/MyWorkPage.tsx';
 import ContactPage from '../Components/pages/ContactPage.tsx';
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute.tsx";
+import ResumePage from "../Components/pages/Resume.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<LandingPage />
+        element:<ResumePage />
       },
       {
         path:"my-work",
@@ -39,6 +39,7 @@ export const router = createBrowserRouter([
         path:"contact",
         element:<ContactPage />
       },
+      
     ]
   },
   {

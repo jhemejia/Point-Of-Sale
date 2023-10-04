@@ -11,11 +11,11 @@ const LandingNavigation: React.FC = () => {
 
   return (
     <div>
-        <div className={["antialiased bg-gray-100 dark-mode:bg-gray-900 md:h-auto", open? ' h-full':''].join("")} >
-            <div className="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+        <div className={["antialiased bg-transparent md:h-auto", open? ' h-full':''].join("")} >
+            <div className="w-full text-white bg-transparent dark-mode:text-gray-200 dark-mode:bg-gray-800">
                 <div className="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                     <div className="flex flex-row items-center justify-between p-4 md:py-1">
-                        <Link to="/" className="flex items-center font-medium text-gray-900 title-font md:mb-0">
+                        <Link to="/" className="flex items-center font-medium text-gray-500 title-font md:mb-0">
                             <img src="./logo.png" alt="logo" className="w-20 " />
                         </Link>
                         <button className="rounded-lg md:hidden focus:outline-none focus:shadow-outline" onClick={toggleMenu}>
@@ -25,16 +25,15 @@ const LandingNavigation: React.FC = () => {
                             </svg>
                         </button>
                     </div>
-                    <nav className={["flex flex-col flex-grow pb-4 md:pb-0 z-10 md:flex md:justify-between md:flex-row", open ? 'flex-col w-full h-full':'hidden'].join(" ")}>
+                    <nav className={["flex flex-col flex-grow pb-4 md:pb-0  z-10 md:flex md:justify-between md:flex-row", open ? 'flex-col w-full h-full':'hidden'].join(" ")}>
                         <div className={[open? 'flex flex-col md:flex-row h-full w-full items-center mb-4 pa-4 justify-between border-0 border-b-2 border-gray-300 md:border-b-0 md:justify-start md:mb-0 md:py-2': 'flex items-center w-full' ].join(" ")}>
-                            <Link to="/" className="mx-auto md:mx-3 py-2 md:py-0 font-medium hover:text-gray-900">Home</Link>
-                            <Link to="/my-work" className="mx-auto md:mx-3 py-2 md:py-0 font-medium hover:text-gray-900">My Work</Link>
-                            <Link to="/about" className="mx-auto md:mx-3 py-2 md:py-0 font-medium hover:text-gray-900">About Me</Link>
-                            <Link to="/contact" className="mx-auto md:mx-3 py-2 md:py-0 font-medium hover:text-gray-900">Contact</Link>
-                            <a href="/Resume - Jherson.pdf" download="Resume - Jherson.pdf"  className="mx-auto md:mx-3 py-2 md:py-0 font-medium hover:text-gray-900">Resume</a>                        
+                            <Link to="/" className="mx-auto md:mx-3 py-2 md:py-0 font-bold hover:text-gray-500">Home</Link>
+                            <Link to="/my-work" className="mx-auto md:mx-3 py-2 md:py-0 font-bold hover:text-gray-500">My Work</Link>
+                            <Link to="/contact" className="mx-auto md:mx-3 py-2 md:py-0 font-bold hover:text-gray-500">Contact</Link>
+                            <a href="/Resume - Jherson.pdf" download="Resume - Jherson.pdf"  className="mx-auto md:mx-3 py-2 md:py-0 font-bold hover:text-gray-500">Resume</a>                        
                         </div>
                         <div className="flex flex-nowrap items-center w-full h-full justify-center md:justify-end mx-2 relative">
-                            <button onClick={()=>navigate("/login")} className="mx-auto md:mx-3 font-medium hover:text-gray-900">Login</button>
+                            <button onClick={()=>navigate("/login")} className="mx-auto md:mx-3 rounded bg-white px-4 py-1 text-gray-700 font-medium hover:text-gray-500 shadow outline-none">Login</button>
                             <button onClick={()=>navigate("/signup")}
                                 className="mx-auto md:mx-3 px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 bg-green-500 rounded shadow outline-none active:bg-green-600 hover:shadow-md focus:outline-none ease">
                                 Sign Up
