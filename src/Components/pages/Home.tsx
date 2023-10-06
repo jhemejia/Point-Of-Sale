@@ -8,7 +8,7 @@ const home = () => {
     <>
     <div className='flex flex-col items-center justify-between flex-nowrap h-full max-w-screen'
     style={{
-        backgroundImage: `url(/space.jpg)`,
+        backgroundImage: "url(space.jpg)",
         backgroundPosition: "bottom",
         backgroundSize: "cover"
     }}>
