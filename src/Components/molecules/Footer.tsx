@@ -72,9 +72,9 @@ const Footer = () => {
                 </div>
                 <div className="my-6 border-t border-gray-200 md:my-8 dark:border-gray-700 align-center md:align-start md:justify-start max-w-full ">
                     <div className="flex align-center justify-center mx-2 max-w-full ">
-                        <a href="/">
+                        <Link to="/">
                             <img className="w-40 h-30" src="home-logo.png" alt=""/>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>   

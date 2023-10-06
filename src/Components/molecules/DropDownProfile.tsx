@@ -40,7 +40,7 @@ const DropDownProfile = () => {
                         </div>
 
                         <div className="flex flex-col space-y-3 p-2">
-                            <Link to="/main/profile" className="transition hover:text-blue-600">My Profile</Link>
+                            <Link to="/main/profile" className="transition hover:text-blue-600" >My Profile</Link>
                             <Link to='' className="transition hover:text-blue-600">Edit Profile</Link>
                             <Link to='' className="transition hover:text-blue-600">Settings</Link>
                         </div>

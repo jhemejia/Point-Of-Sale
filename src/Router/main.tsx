@@ -41,15 +41,11 @@ export const router = createBrowserRouter([
     children:[
       {
         path: "profile",
-        element: <div className="py-6 flex">
-          <ErrorPage /> ,
-          </div>
+        element: <ProfilePage /> ,
       },
       {
         path: "store",
-        element: <div className="py-6 flex">
-        <ErrorPage /> ,
-        </div> ,
+        element: <Store /> ,
       },
     ]
   },

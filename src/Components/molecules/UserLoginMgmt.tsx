@@ -1,10 +1,19 @@
-import { selectUser } from '../../Reducers/UserSlice'
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { logUser, selectUser } from '../../Reducers/UserSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import DropDownProfile from './DropDownProfile'
 
 const UserLoginMgmt = () => {
     const navigate = useNavigate()
+    const dispatch= useDispatch();
+    const localStorageUser = localStorage.getItem("user")
+    useEffect(()=>{
+      if(localStorageUser){
+          dispatch(logUser(JSON.parse(localStorageUser)))
+      }
+  },[localStorageUser])
+
     const user = useSelector(selectUser)
 
     if(user){

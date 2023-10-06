@@ -73,14 +73,14 @@ const ResumePage = () => {
             </motion.div>
             <motion.div className='absolute inset-0 z-0 h-screen'
             style={{
-                backgroundImage: `url(/stars.svg)`,
+                backgroundImage: "url(/stars.svg)",
                 backgroundPosition: "bottom",
                 backgroundSize: "cover",
                   y: backgroundY
             }}></motion.div>
             <motion.div className='absolute inset-5 z-0 h-screen'
             style={{
-                backgroundImage: `url(/stars.svg)`,
+                backgroundImage: "url(/stars.svg)",
                 backgroundPosition: "bottom",
                 backgroundSize: "cover",
                   y: backgroundY
