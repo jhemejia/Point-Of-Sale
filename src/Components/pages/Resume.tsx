@@ -25,15 +25,15 @@ const ResumePage = () => {
     }
    
   return (
-    <div ref={parallaxRef} className="w-full h-screen overflow-hidden relative grid place-items-end">
-            <motion.div className='font-bold w-[50%] h-full box-content text-white relative z-10 mr-4' 
+    <div ref={parallaxRef} className="w-full h-screen overflow-hidden relative grid place-items-end sm:grid-flow-col">
+            <motion.div className='font-bold w-full md:w-[50%] h-full box-content text-white relative z-10 place-self-center md:place-self-end md:mr-4' 
             style={{y: -textY}}>
                 <div className='max-h-screen overflow-auto'>
                   <WhoIAmPage style={ glassStyle as React.CSSProperties} />
                   <MyPhilosophyPage style={ glassStyle as React.CSSProperties} />
                 </div>
             </motion.div>
-            <motion.div className='absolute inset-0 z-20 w-[50%] max-h-full'
+            <motion.div className='relative w-full md:absolute inset-0 z-20 md:w-[50%] max-h-full'
             style={{
                 y: backgroundY
             }}

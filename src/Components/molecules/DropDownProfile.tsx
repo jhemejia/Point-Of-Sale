@@ -6,7 +6,7 @@ import { useAuth } from '../../Services/FirebaseService'
 
 
 const DropDownProfile = () => {
-    const defProfilePic = "USER-IMAGEN-DEF.jpeg"
+    const defProfilePic = "/USER-IMAGEN-DEF.jpeg"
     const [profileDiv, setProfileDiv] = useState(false);
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -32,15 +32,15 @@ const DropDownProfile = () => {
             <img src={user?.photoUrl || defProfilePic} alt="profile-img" />
         </button>
        {/*  <!-- dropdown profile --> */}
-       <div className={["absolute right-2 mt-4 w-48 divide-y divide-gray-100 rounded-md border z-10 border-gray bg-white shadow-md",profileDiv?"":" hidden"].join("")}
+       <div className={["absolute right-2 mt-4 w-48 divide-y divide-gray-100 text-gray-700 rounded-md border z-50 border-gray bg-white shadow-md ",profileDiv?"":" hidden"].join("")}
                         >
-                        <div className="flex items-center space-x-2 p-2">
-                            <img src={user?.photoUrl || defProfilePic} alt="profile-img" className="h-9 w-9 rounded-full" />
+                        <div className="flex items-center space-x-2 p-2 z-30">
+                            <img src={user?.photoUrl || defProfilePic} alt="profile-img" className="h-9 w-9 rounded-full bg-transparent" />
                             <div className="font-medium">{user?.name || 'Unknown User'}</div>
                         </div>
 
                         <div className="flex flex-col space-y-3 p-2">
-                            <Link to="profile" className="transition hover:text-blue-600">My Profile</Link>
+                            <Link to="/main/profile" className="transition hover:text-blue-600">My Profile</Link>
                             <Link to='' className="transition hover:text-blue-600">Edit Profile</Link>
                             <Link to='' className="transition hover:text-blue-600">Settings</Link>
                         </div>

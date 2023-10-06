@@ -8,12 +8,12 @@ const home = () => {
     <>
     <div className='flex flex-col items-center justify-between flex-nowrap h-full max-w-screen'
     style={{
-        backgroundImage: "url(space.jpg)",
+        backgroundImage: "url(../public/space.jpg)",
         backgroundPosition: "bottom",
         backgroundSize: "cover"
     }}>
       {/*<!-- Header Menu Left -->*/}    
-      <header className="w-full mt-1 text-white bg-transparent shadow-sm body-font relative">
+      <header className="w-full mt-1 text-white bg-transparent shadow-sm body-font z-30 relative">
         <LandingNavigation/>
       </header>
       <div className="h-screen max-w-full min-w-full relative">

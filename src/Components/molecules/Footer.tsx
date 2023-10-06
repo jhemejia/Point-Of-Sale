@@ -55,8 +55,8 @@ const Footer = () => {
 
                         <div className="flex flex-col items-start my-5 space-y-2">
                             <Link to="/" className="text-white transition-colors duration-300  hover:underline hover:text-blue-500">Home</Link>
-                            <Link to="/about" className="text-white transition-colors duration-300  hover:underline hover:text-blue-500">Who I Am</Link>
-                            <Link to="/my-philosophy" className="text-white transition-colors duration-300  hover:underline hover:text-blue-500">My Philosophy</Link>
+                            <a href="/resume - jherson.pdf" download="Resume - Jherson.pdf"  className="text-white transition-colors duration-300  hover:underline hover:text-blue-500">Resume</a>
+                            <Link to="/contact" className="text-white transition-colors duration-300  hover:underline hover:text-blue-500">Contact</Link>
                         </div>
                     </div>
 
@@ -70,13 +70,11 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="my-6 border-t border-gray-200 md:my-8 dark:border-gray-700 align-start justify-start  max-w-full ">
-                    <div className="flex items-center justify-between mx-2 max-w-full ">
+                <div className="my-6 border-t border-gray-200 md:my-8 dark:border-gray-700 align-center md:align-start md:justify-start max-w-full ">
+                    <div className="flex align-center justify-center mx-2 max-w-full ">
                         <a href="/">
-                            <img className="w-40 h-20" src="logo.png" alt=""/>
+                            <img className="w-40 h-30" src="home-logo.png" alt=""/>
                         </a>
-                    
-                        
                     </div>
                 </div>
             </div>   
